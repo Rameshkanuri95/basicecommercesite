@@ -1,0 +1,48 @@
+.blog-section {
+    margin: 40px 0;
+
+    .blog-section-title {
+        font-size: 32px;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .blog-posts {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    .blog-post-card {
+        border: 1px solid #ccc;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        .blog-post-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-post-title {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        .blog-post-description {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .blog-post-author {
+            font-style: italic;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .blog-posts {
+            grid-template-columns: 1fr;
+        }
+    }
+}
