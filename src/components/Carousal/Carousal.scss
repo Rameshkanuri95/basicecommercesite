@@ -1,0 +1,28 @@
+.carousel-wrapper {
+    width: 80%;
+    margin: auto;
+    .custom-carousel {
+      img {
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      }
+    }
+  
+    .carousel .slide {
+      background-color: #fff; // background color for slides
+    }
+  
+    .carousel .control-prev.control-arrow::before,
+    .carousel .control-next.control-arrow::before {
+      color: #333; // Custom color for arrows
+    }
+  
+    .carousel .control-dots .dot {
+      background-color: #333; // Custom color for dots
+    }
+  
+    .carousel .control-dots .dot.selected {
+      background-color: #ff0000; // Color for the selected dot
+    }
+  }
+  

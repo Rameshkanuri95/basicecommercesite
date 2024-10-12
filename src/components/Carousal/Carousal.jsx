@@ -1,43 +1,34 @@
-import React, { useState, useRef } from "react"
-import "./Carousal.scss"
+import React from 'react';
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; 
+import './Carousal'; 
 
-const Carousel = ({ images }) => {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const carouselRef = useRef(null)
+const imageUrls = [
+  "https://via.placeholder.com/600x300/FF0000/FFFFFF?text=Slide+1",
+  "https://via.placeholder.com/600x300/00FF00/000000?text=Slide+2",
+  "https://via.placeholder.com/600x300/0000FF/FFFFFF?text=Slide+3",
+  "https://via.placeholder.com/600x300/FFFF00/000000?text=Slide+4",
+];
 
-  
-  const handleNext = () => {
-    const newIndex = (currentIndex + 1) % images.length
-    setCurrentIndex(newIndex)
-  }
-
-  const handlePrev = () => {
-    const newIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1
-    setCurrentIndex(newIndex)
-  }
-
+const Carousal = () => {
   return (
-    <div className="carousel-container">
-      <button className="carousel-button prev" onClick={handlePrev}>
-        <i className="fa fa-chevron-left" />
-      </button>
-      <div className="carousel-slides" ref={carouselRef}>
-        {images.map((image, index) => (
-          <div
-            className={`carousel-slide ${
-              index === currentIndex ? "active" : ""
-            }`}
-            key={index}
-          >
-            <img src={image} alt={`Carousel Image ${index + 1}`} />
+    <div className="carousel-wrapper">
+      <Carousel
+        showThumbs={false}
+        infiniteLoop={true}
+        autoPlay={true}
+        interval={3000}
+        showStatus={false}
+        className="custom-carousel"
+      >
+        {imageUrls.map((url, index) => (
+          <div key={index}>
+            <img src={url} alt={`Slide ${index + 1}`} />
           </div>
         ))}
-      </div>
-      <button className="carousel-button next" onClick={handleNext}>
-        <i className="fa fa-chevron-right" />
-      </button>
+      </Carousel>
     </div>
-  )
-}
+  );
+};
 
-export default Carousel
+export default Carousal;
